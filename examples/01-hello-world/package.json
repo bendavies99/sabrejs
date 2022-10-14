@@ -1,0 +1,9 @@
+{
+  "name": "01-hello-world",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "@sabrejs/core": "0.0.1"
+  }
+}

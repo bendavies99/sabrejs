@@ -1,0 +1,57 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": [
+      "DOM",
+      "ES2020",
+      "ESNext.AsyncIterable",
+      "ScriptHost",
+      "ES2015.Collection"
+    ],
+    "target": "ES2021",
+    "allowJs": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": false,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "declaration": true,
+    "removeComments": false,
+    "plugins": [
+      {
+        "transform": "./src/transformer.ts",
+        "type": "checker"
+      }
+    ]
+  },
+  "exclude": [
+    "../../node_modules",
+    "./node_modules",
+    ".gradle",
+    "build",
+    ".idea"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ]
+}
+

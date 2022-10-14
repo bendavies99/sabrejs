@@ -1,0 +1,21 @@
+{
+  "name": "@sabrejs/common",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Common utilities for SabreJS",
+  "main": "./dist/index.js",
+  "types": "./dist/index.ts",
+  "scripts": {
+    "build:dev": "tsc -p ."
+  },
+  "dependencies": {
+   "tree-kill": "^1.2.2",
+   "@schemastore/package": "^0.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.5"
+  },
+  "keywords": ["sabrejs", "common"],
+  "author": "Ben Davies <me@bdavies.net>",
+  "license": "MIT"
+}
