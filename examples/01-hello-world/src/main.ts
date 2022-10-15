@@ -1,4 +1,5 @@
-const sabre = SabreFactory.create();
+// const sabre = SabreFactory.create();
+import {Singleton} from "@sabrejs/core";
 
 @Singleton()
 export class Logger {
@@ -17,6 +18,6 @@ export class HelloWorld {
     }
 }
 
-const hWorld : HelloWorld = sabre.get<HelloWorld>();
-hWorld.hello();
+// const hWorld : HelloWorld = sabre.get<HelloWorld>();
+// hWorld.hello();
 

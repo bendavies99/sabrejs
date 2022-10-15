@@ -1,21 +1,23 @@
 {
-  "name": "@sabrejs/core",
+  "name": "@sabrejs/transformer",
   "version": "0.0.1",
   "private": false,
-  "description": "Core application for SabreJS",
+  "description": "Typescript transformer for SabreJS",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "scripts": {
     "build:dev": "tsc -p ."
   },
   "dependencies": {
-    "reflect-metadata": "^0.1.13",
+    "typescript": "^4.8.4",
+    "ttypescript": "^1.5.13",
+    "ts-node": "^10.9.1",
     "@sabrejs/common": "^0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.8.5"
   },
-  "keywords": ["sabrejs", "core"],
+  "keywords": ["sabrejs", "transformer"],
   "author": "Ben Davies <me@bdavies.net>",
-  "license": "MIT License"
+  "license": "MIT"
 }

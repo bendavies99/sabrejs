@@ -86,7 +86,7 @@ export class Serialiser {
      */
     serialiseSignature(signature: ts.Signature): SerialisedSignature {
         return {
-            parameters: signature.parameters.map(this.serialiseSymbol),
+            parameters: signature.parameters.filter(s => s !== undefined).map(s => this.serialiseSymbol(s)),
             returnType: this.checker.typeToString(signature.getReturnType()),
             documentation: ts.displayPartsToString(signature.getDocumentationComment(this.checker))
         };
@@ -101,11 +101,11 @@ export class Serialiser {
     serialiseClass(node: ts.ClassDeclaration): SerialisedClass {
         const symbol: ts.Symbol = this.checker.getSymbolAtLocation(node.name!)!;
         const constructorType = this.checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!);
-        const constructorData = constructorType.getConstructSignatures()?.map(this.serialiseSignature) || [];
+        const constructorData = constructorType.getConstructSignatures()?.map(s => this.serialiseSignature(s)) || [];
         return {
             ...this.serialiseSymbol(symbol),
             constructors: constructorData,
-            decorators: ts.getDecorators(node)?.map(this.serialiseDecorator) || [],
+            decorators: ts.getDecorators(node)?.map(d => this.serialiseDecorator(d)) || [],
             interfaces: node.heritageClauses?.flatMap(hc => hc.types)
                 .filter(type => {
                     const typeVal = this.checker.getTypeAtLocation(type.getFirstToken()!);
@@ -113,7 +113,7 @@ export class Serialiser {
                     return objectType.objectFlags === ObjectFlags.Interface
                         || objectType.objectFlags === (ObjectFlags.Interface | ObjectFlags.Reference);
                 })
-                .map(this.serialiseInterface) || []
+                .map(i => this.serialiseInterface(i)) || []
         };
     }
 }

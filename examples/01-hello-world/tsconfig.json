@@ -33,8 +33,11 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "types": [
-      "cypress"
+    "plugins": [
+      {
+        "transform": "@sabrejs/transformer",
+        "type": "checker"
+      }
     ]
   },
   "exclude": [

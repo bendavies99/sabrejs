@@ -65,7 +65,7 @@ function processMetadata(sourceFile: ts.SourceFile, checker: ts.TypeChecker, out
                 output.push(serialiser.serialiseClass(node))
                 addClassMapping(node);
                 const constructorType = checker.getTypeOfSymbolAtLocation(symbol, symbol.valueDeclaration!);
-                const constructorData = constructorType.getConstructSignatures()?.map(serialiser.serialiseSignature) || [];
+                const constructorData = constructorType.getConstructSignatures()?.map(s => serialiser.serialiseSignature(s)) || [];
                 return instrumenter.createJuicyInit(node, constructorData);
             }
         }

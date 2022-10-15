@@ -4,7 +4,7 @@
   "private": false,
   "description": "Common utilities for SabreJS",
   "main": "./dist/index.js",
-  "types": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build:dev": "tsc -p ."
   },
