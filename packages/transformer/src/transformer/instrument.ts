@@ -64,7 +64,7 @@ export class Instrument {
             [
                 ...members,
                 method,
-                ...node.members.filter(m => m.kind === SyntaxKind.Constructor)
+                ...node.members.filter(m => m.kind !== SyntaxKind.Constructor)
             ]);
     }
 }

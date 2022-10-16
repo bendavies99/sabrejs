@@ -1,12 +1,12 @@
 import {ParamProvider, ParamProviderHandler} from "./ParamProvider";
-// import {Sabre} from "../../Sabre";
+import {Sabre} from "../../interfaces";
 
 
 class EnvParamProvider implements ParamProviderHandler {
     constructor(private data: { key: string, defaultValue?: string }) {
     }
 
-    handleParam(_paramType: string, _container: any): string | undefined {
+    handleParam(_paramType: string, _container: Sabre): string | undefined {
         return process.env[this.data.key] || this.data.defaultValue;
     }
 }

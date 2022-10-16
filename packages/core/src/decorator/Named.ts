@@ -1,14 +1,13 @@
 import {ClassType} from "../defs";
 import {ParamProvider, ParamProviderHandler} from "./param";
-// import {Sabre} from "../Sabre";
+import {Sabre} from "../interfaces";
 
 
 class NamedParamProvider implements ParamProviderHandler {
     constructor(private data: { name: string }) {
     }
 
-    handleParam<ReturnType>(_paramType: string, container: any): ReturnType {
-        // @ts-ignore
+    handleParam<ReturnType>(_paramType: string, container: Sabre): ReturnType {
         return container.getInstance<ReturnType>(this.data.name);
     }
 }

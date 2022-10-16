@@ -1,5 +1,6 @@
 import {CompilerOptions} from "typescript";
-import {Sabre, RegistryItem} from "./Sabre";
+import {RegistryClassItem} from "./impl/SabreRegistry";
+import {Sabre} from "./interfaces";
 
 export type InjectionMeta = InjectionMetaItem[];
 
@@ -9,7 +10,7 @@ export interface InjectionMapper {
 
 
 export interface InjectionPointHandlerOptions {
-    onInjection: <T>(item: RegistryItem, name: string, container: Sabre) => T;
+    onInjection: <T>(item: RegistryClassItem, name: string, container: Sabre) => T;
 }
 
 interface MetaSignature {

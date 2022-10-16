@@ -1,8 +1,8 @@
-// import {Sabre} from "../../Sabre";
 import {ClassType} from "../../defs";
+import {Sabre} from "../../interfaces";
 
 export interface ParamProviderHandler {
-    handleParam: (paramType: string, container: any) => any;
+    handleParam: (paramType: string, container: Sabre) => any;
 }
 
 /**

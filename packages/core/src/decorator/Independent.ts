@@ -1,4 +1,5 @@
 import {InjectionPointHandler} from "./InjectionPointHandler";
+import {SabreContainer} from "../interfaces/internal/SabreContainer";
 
 /**
  * The independent decorator will ensure that the
@@ -7,5 +8,6 @@ import {InjectionPointHandler} from "./InjectionPointHandler";
  * @author ben.davies
  */
 export const Independent = (): CallableFunction => InjectionPointHandler({
-   onInjection: (_item, name, container) => container.constructNewInstance(name, true)
+   onInjection: (_item, name, container) =>
+       (container as SabreContainer).constructNewInstance(name, true)
 });
