@@ -19,6 +19,5 @@ export class HelloWorld {
 
 const sabre = SabreFactory.create();
 const hWorld = sabre.getInstance<HelloWorld>();
-console.log(hWorld);
 hWorld.hello();
 

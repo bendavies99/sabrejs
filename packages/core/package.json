@@ -3,19 +3,29 @@
   "version": "0.0.1",
   "private": false,
   "description": "Core application for SabreJS",
-  "main": "./dist/main.js",
+  "main": "./dist/main.cjs",
   "types": "./dist/main.d.ts",
+  "type": "module",
+  "source": "./src/main.ts",
+  "module": "./dist/main.module.js",
+  "exports": {
+    "types": "./dist/main.d.ts",
+    "require": "./dist/main.cjs",
+    "default": "./dist/main.modern.js"
+  },
   "scripts": {
-    "build:dev": "tsc -p ."
+    "build:dev": "microbundle -f modern,esm,cjs"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13",
-    "@sabrejs/common": "^0.0.1"
+    "@sabrejs/common": "^0.0.1",
+    "bluebird": "^3.7.2"
   },
   "devDependencies": {
-    "@types/node": "^18.8.5"
+    "@types/node": "^18.8.5",
+    "microbundle": "^0.15.1"
   },
   "keywords": ["sabrejs", "core"],
   "author": "Ben Davies <me@bdavies.net>",
-  "license": "MIT License"
+  "license": "MIT"
 }

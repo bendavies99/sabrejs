@@ -8,4 +8,5 @@ export interface SabreContainer extends Sabre {
     hasData(name: string): boolean;
     setData(name: string, value: any): void;
     constructNewInstance<T>(named: string, initToo?: boolean): T;
+    init(): Promise<void>;
 }

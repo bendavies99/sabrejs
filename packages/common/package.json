@@ -3,17 +3,27 @@
   "version": "0.0.1",
   "private": false,
   "description": "Common utilities for SabreJS",
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
+  "type": "module",
+  "source": "./src/index.ts",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
   "scripts": {
-    "build:dev": "tsc -p ."
+    "build:dev": "microbundle"
   },
   "dependencies": {
    "tree-kill": "^1.2.2",
    "@schemastore/package": "^0.0.6"
   },
   "devDependencies": {
-    "@types/node": "^18.8.5"
+    "@types/node": "^18.8.5",
+    "microbundle": "^0.15.1"
   },
   "keywords": ["sabrejs", "common"],
   "author": "Ben Davies <me@bdavies.net>",

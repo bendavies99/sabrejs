@@ -21,6 +21,9 @@ export class SabreInjectorImpl implements SabreInjector {
     }
 
     getInstance<T>(named: string): T {
+        if (!this.registry.getClassItem(named)) {
+            throw new Error('Unable to find injection point for: ' + named);
+        }
         if (named === this.currentRoot && this.currentInstance) {
             return this.currentInstance;
         }

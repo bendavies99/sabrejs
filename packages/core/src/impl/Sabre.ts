@@ -6,19 +6,20 @@ import {SabreRegistry} from "./SabreRegistry";
 import {SabreInjector, SabreInjectorImpl} from "./SabreInjector";
 
 export class SabreImpl implements SabreContainer {
-    private readonly registry!: SabreRegistry;
+    private _registry!: SabreRegistry;
     private injector!: SabreInjector;
     private _data: Record<string, any> = {};
 
     constructor(private readonly config: SabreConfiguration,
                 private readonly metadataProcessor: SabreMetadataProcessor,
                 private readonly metadata: SabreMetadata) {
-        metadata.loadInjectionMetadata(config.metadataDirectory);
-        this.registry = metadataProcessor.processMetadata(metadata);
-        this.injector = new SabreInjectorImpl(this.registry, this);
     }
 
-
+    async init() {
+        await this.metadata.loadInjectionMetadata();
+        this._registry = await this.metadataProcessor.processMetadata(this.metadata);
+        this.injector = new SabreInjectorImpl(this._registry, this);
+    }
 
     getInstance<T>(named?: string): T {
         if (!named) {

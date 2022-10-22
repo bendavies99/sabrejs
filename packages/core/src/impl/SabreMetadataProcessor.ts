@@ -3,22 +3,22 @@ import {RegistryClassItem, SabreRegistry, SabreRegistryImpl} from "./SabreRegist
 import {InjectionMetaItem, InjectionPointHandlerOptions} from "../defs";
 
 export interface SabreMetadataProcessor {
-    processMetadata(metadata: SabreMetadata): SabreRegistry;
+    processMetadata(metadata: SabreMetadata): Promise<SabreRegistry>;
 }
 
 export class SabreMetadataProcessorImpl implements SabreMetadataProcessor {
-    processMetadata(metadata: SabreMetadata): SabreRegistry {
+    async processMetadata(metadata: SabreMetadata): Promise<SabreRegistry> {
         const registry = new SabreRegistryImpl();
-        metadata.injectionMeta.forEach(classItem => {
+        for (const classItem of metadata.injectionMeta) {
             if (classItem.constructors.length > 1) {
                 throw new Error(`Unable to parse ${classItem.name} because it has more than one constructor and is too ambiguous`);
             }
-            registry.addClassItem(classItem.name, SabreMetadataProcessorImpl.generateRegistryClassItem(classItem, metadata));
+            registry.addClassItem(classItem.name, (await SabreMetadataProcessorImpl.generateRegistryClassItem(classItem, metadata)));
 
             classItem.interfaces.forEach(i => {
                registry.addInterfaceImplementation(i.name, classItem.name);
             });
-        });
+        }
 
         this.createDependencyGraph(metadata, registry);
         this.matchInterfacesToImplementations(registry);
@@ -41,9 +41,9 @@ export class SabreMetadataProcessorImpl implements SabreMetadataProcessor {
         });
     }
 
-    private static generateRegistryClassItem(classItem: InjectionMetaItem, metadata: SabreMetadata): RegistryClassItem {
+    private static async generateRegistryClassItem(classItem: InjectionMetaItem, metadata: SabreMetadata): Promise<RegistryClassItem> {
         const name = classItem.name;
-        const classDef = metadata.injectionMapper[name]!();
+        const classDef = await metadata.injectionMapper[name]!();
         const handler = Reflect.getMetadata('injectionPointHandler', classDef) as InjectionPointHandlerOptions;
         const constructorParams = classItem.constructors[0]!.parameters.map((param, idx) => ({
             index: idx,

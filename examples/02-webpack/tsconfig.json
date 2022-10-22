@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "esnext",
+    "module": "commonjs",
     "lib": [
       "DOM",
       "ES2020",
@@ -8,7 +8,6 @@
       "ScriptHost",
       "ES2015.Collection"
     ],
-    "target": "esnext",
     "allowJs": true,
     "importHelpers": true,
     "downlevelIteration": true,
@@ -34,8 +33,13 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "declaration": true,
-    "removeComments": false
+    "plugins": [
+      {
+        "transform": "@sabrejs/transformer",
+        "type": "checker",
+        "usesBundler": true
+      }
+    ]
   },
   "exclude": [
     "../../node_modules",
@@ -45,7 +49,7 @@
     ".idea"
   ],
   "include": [
+    "./src/**/*.tsx",
     "./src/**/*.ts"
   ]
 }
-

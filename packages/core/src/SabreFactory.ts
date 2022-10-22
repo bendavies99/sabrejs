@@ -4,8 +4,10 @@ import {SabreMetadataProcessorImpl} from "./impl/SabreMetadataProcessor";
 import {SabreMetadataImpl} from "./impl/SabreMetadata";
 
 class SabreFactoryImpl {
-    public create(): Sabre {
-        return new SabreImpl({}, new SabreMetadataProcessorImpl(), new SabreMetadataImpl());
+    public async create(): Promise<Sabre> {
+        const inst = new SabreImpl({}, new SabreMetadataProcessorImpl(), new SabreMetadataImpl());
+        await inst.init();
+        return inst;
     }
 }
 
