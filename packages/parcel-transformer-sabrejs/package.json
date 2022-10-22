@@ -1,0 +1,26 @@
+{
+  "name": "@sabrejs/parcel-transformer-sabrejs",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Parcel transformer for SabreJS",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "scripts": {
+    "build:dev": "tsc -p ."
+  },
+  "dependencies": {
+    "typescript": "^4.8.4",
+    "ttypescript": "^1.5.13",
+    "ts-node": "^10.9.1",
+    "@sabrejs/common": "^0.0.1",
+    "@parcel/plugin": "^2.7.0",
+    "@parcel/ts-utils": "^2.7.0",
+    "@parcel/source-map": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.8.5"
+  },
+  "keywords": ["sabrejs", "transformer"],
+  "author": "Ben Davies <me@bdavies.net>",
+  "license": "MIT"
+}
