@@ -1,5 +1,5 @@
 {
-  "name": "01-hello-world",
+  "name": "01-node",
   "version": "1.0.0",
   "main": "dist/main.js",
   "license": "MIT",

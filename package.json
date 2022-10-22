@@ -9,7 +9,7 @@
     "test:watch": "lerna run --parallel --no-bail test:watch",
     "run:dev": "lerna run --parallel run:dev",
     "run:watch": "lerna run --parallel run:watch",
-    "build:dev": "lerna run --parallel build:dev",
+    "build:dev": "lerna run build:dev",
     "build:prod": "lerna run --parallel build:prod"
   },
   "description": "SabreJS is a dependency injection framework using Typescript",

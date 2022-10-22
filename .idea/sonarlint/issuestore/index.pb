@@ -6,8 +6,6 @@ R
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-U
-%examples/01-hello-world/tsconfig.json,5\4\54831e9941a295440d1fa6afe87e1839c49d6443
 Z
 *packages/core/src/decorator/param/index.ts,c\3\c3cf80e4aad604db2362316e58827506dc94f1c4
 T
@@ -26,3 +24,7 @@ W
 'packages/core/src/impl/SabreRegistry.ts,0\5\05c28f81c19a7db31f26a68a262b19b8e4d2a954
 X
 (packages/core/src/decorator/Singleton.ts,a\9\a9d7b9d212d9dba0fd47bb4f2fa4cc462dd8e0e9
+W
+'packages/transformer/src/transformer.ts,5\0\5089f197b032128a56d6b3d2c4dc7000cd06a3cc
+J
+packages/core/package.json,d\5\d5cb53d37fc7beaedfcaef662a7ebca5dbc6f04f

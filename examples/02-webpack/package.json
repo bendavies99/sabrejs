@@ -4,8 +4,7 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "ttsc -p .",
-    "build:dev": "webpack",
+    "build": "webpack",
     "run": ""
   },
   "dependencies": {
