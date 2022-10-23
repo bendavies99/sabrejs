@@ -1,8 +1,30 @@
 import {SabreFactory, Singleton} from "@sabrejs/core";
 
 @Singleton()
+export class LevelProvider {
+
+    getLevelName() {
+        return 'INFO: ';
+    }
+}
+
+@Singleton()
+export class Logger {
+    constructor(private readonly levelProvider: LevelProvider) {
+    }
+
+    log(msg: string) {
+        console.log(this.levelProvider.getLevelName() + msg);
+    }
+}
+
+@Singleton()
 export class DomAdder {
+    constructor(private readonly logger: Logger) {
+    }
+
     putMessage(id: string, msg: string) {
+        this.logger.log(msg);
         document.getElementById(id)!.textContent = msg;
     }
 

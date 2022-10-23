@@ -3,19 +3,17 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build index.html --log-level verbose",
-    "run": "parcel index.html --log-level verbose"
+    "build": "parcel build index.html",
+    "run": "parcel index.html"
   },
   "alias": {
     "process": false
   },
   "dependencies": {
-    "@sabrejs/core": "link:0.0.1",
-    "@sabrejs/transformer": "link:0.0.1"
+    "@sabrejs/core": "link:0.0.1"
   },
   "devDependencies": {
     "parcel": "^2.7.0",
-    "ttypescript": "^1.5.13",
     "@sabrejs/parcel-transformer-sabrejs": "link:0.0.1"
   }
 }

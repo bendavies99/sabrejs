@@ -16,7 +16,7 @@ export class MapperFileWriter {
     }
 
     private _writeCjs(items: any) {
-        fs.writeFileSync(this.mapperFiles.cjs,`var a23232333_mapper = ${this._stringifyItems(items, false)};exports.default = a23232333_mapper;`);
+        fs.writeFileSync(this.mapperFiles.cjs,`var a23232333_mapper = ${this._stringifyItems(items, false)};module.exports = {default: a23232333_mapper};`);
     }
 
     private _stringifyItems(items: any, isEsm: boolean) {

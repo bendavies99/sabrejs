@@ -12,7 +12,7 @@ const TsTransformer = new Transformer({
 
     async transform({asset, config, options, logger}) {
         asset.type = 'js';
-        logger.warn({
+        logger.verbose({
             message: 'Handling file: ' + asset.filePath,
         });
 
@@ -25,7 +25,15 @@ const TsTransformer = new Transformer({
                     ...(config as object),
                     noEmit: false,
                     module: typescript.ModuleKind.ESNext,
-                    sourceMap: !!asset.env.sourceMap
+                    sourceMap: !!asset.env.sourceMap,
+                    plugins: [
+                        {
+                            // @ts-ignore
+                            transform: "@sabrejs/transformer",
+                            type: "checker",
+                            usesBundler: true
+                        }
+                    ]
                 },
                 fileName: asset.filePath,
             },

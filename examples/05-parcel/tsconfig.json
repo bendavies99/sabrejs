@@ -32,14 +32,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "jsx": "react",
-    "plugins": [
-      {
-        "transform": "@sabrejs/transformer",
-        "type": "checker",
-        "usesBundler": true
-      }
-    ]
+    "jsx": "react"
   },
   "exclude": [
     "../../node_modules",

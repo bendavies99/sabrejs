@@ -16,6 +16,6 @@ export class MetaFileWriter {
     }
 
     private _writeCjs(items: SerialisedClass[]) {
-        fs.writeFileSync(this.metaFiles.cjs,`var a23232333_meta = {items:${JSON.stringify(items)}};exports.default = a23232333_meta;`);
+        fs.writeFileSync(this.metaFiles.cjs,`var a23232333_meta = {items:${JSON.stringify(items)}};module.exports = {default: a23232333_meta};`);
     }
 }

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
+    "target": "esnext",
     "lib": [
       "DOM",
       "ES2020",
@@ -8,6 +9,7 @@
       "ScriptHost",
       "ES2015.Collection"
     ],
+    "types": ["webpack-env"],
     "allowJs": true,
     "importHelpers": true,
     "downlevelIteration": true,

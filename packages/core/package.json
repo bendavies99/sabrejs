@@ -6,7 +6,6 @@
   "main": "./dist/main.cjs",
   "types": "./dist/main.d.ts",
   "type": "module",
-  "source": "./src/main.ts",
   "module": "./dist/main.module.js",
   "exports": {
     "types": "./dist/main.d.ts",
@@ -14,7 +13,7 @@
     "default": "./dist/main.modern.js"
   },
   "scripts": {
-    "build:dev": "microbundle -f modern,esm,cjs"
+    "build:dev": "microbundle -i ./src/main.ts -f modern,esm,cjs"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13",

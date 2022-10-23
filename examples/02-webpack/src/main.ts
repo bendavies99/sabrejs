@@ -1,8 +1,36 @@
 import {SabreFactory, Singleton} from "@sabrejs/core";
 
+
+if (module.hot) {
+    module.hot.accept(err => {
+        console.error(err);
+    });
+}
+
+@Singleton()
+export class LoggerName {
+    name() {
+        return 'mainy'
+    }
+}
+
+@Singleton()
+export class Logger {
+    constructor(private readonly logName: LoggerName) {
+    }
+
+    log(msg: string) {
+        console.log(`INFO [${this.logName.name()}]: ${msg}`);
+    }
+}
+
 @Singleton()
 export class DomAdder {
+    constructor(private readonly logger: Logger) {
+    }
+
     putMessage(id: string, msg: string) {
+        this.logger.log(msg);
         document.getElementById(id)!.textContent = msg;
     }
 
@@ -24,8 +52,9 @@ export class HelloWorld {
         this.domAdder.bind('test', 'test2');
     }
 }
-
-const sabre = SabreFactory.create();
-const hWorld = sabre.getInstance<HelloWorld>();
-hWorld.hello();
+(async () => {
+    const sabre = await SabreFactory.create();
+    const hWorld = sabre.getInstance<HelloWorld>();
+    hWorld.hello();
+})();
 

@@ -1,8 +1,19 @@
 import {SabreFactory, Singleton} from "@sabrejs/core";
 
 @Singleton()
+export class Test {
+    log(msg: string) {
+        console.log(msg);
+    }
+}
+
+@Singleton()
 export class DomAdder {
+    constructor(private readonly test: Test) {
+    }
+
     putMessage(id: string, msg: string) {
+        this.test.log(msg);
         document.getElementById(id)!.textContent = msg;
     }
 

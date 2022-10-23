@@ -1,20 +1,25 @@
 const path = require("path");
-
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
    entry: './src/main.ts',
-   mode: 'production',
+   mode: 'development',
    resolve: {
        extensions: [".ts", ".tsx", ".js", ".jsx"],
-       fallback: {
-           "path": require.resolve("path-browserify"),
-           "fs": false
-       }
    },
-   devtool: 'source-map',
+   devtool: 'inline-source-map',
+   devServer: {
+     hot: true
+   },
    output: {
        path: path.join(__dirname, 'dist'),
        filename: 'bundle.js'
    },
+   plugins: [
+       new HtmlWebpackPlugin({
+           title: 'Development',
+           template: './index.html'
+       }),
+   ],
    module: {
        rules: [
            {

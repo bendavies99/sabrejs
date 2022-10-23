@@ -14,7 +14,7 @@ export class FileFinder {
             .map(f => path.join(distDir, f))
             .forEach(f => {
                 const data = fs.readFileSync(f).toString('utf8');
-                if (data.includes("exports.default")) {
+                if (data.includes("exports.default") || data.includes('module.exports = ')) {
                     item.cjs = f;
                 } else {
                     item.esm = f;
@@ -30,7 +30,7 @@ export class FileFinder {
             .map(f => path.join(distDir, f))
             .forEach(f => {
                 const data = fs.readFileSync(f).toString('utf8');
-                if (data.includes("exports.default")) {
+                if (data.includes("exports.default") || data.includes('module.exports = ')) {
                     item.cjs = f;
                 } else {
                     item.esm = f;

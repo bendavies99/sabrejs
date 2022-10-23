@@ -26,5 +26,3 @@ X
 (packages/core/src/decorator/Singleton.ts,a\9\a9d7b9d212d9dba0fd47bb4f2fa4cc462dd8e0e9
 W
 'packages/transformer/src/transformer.ts,5\0\5089f197b032128a56d6b3d2c4dc7000cd06a3cc
-J
-packages/core/package.json,d\5\d5cb53d37fc7beaedfcaef662a7ebca5dbc6f04f

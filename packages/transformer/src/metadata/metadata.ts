@@ -14,7 +14,7 @@ export interface TsConfigOptions {
 }
 
 export class Metadata {
-    private readonly _output: SerialisedClass[] = [];
+    private _output: SerialisedClass[] = [];
     private readonly _outputMapper = {};
     private readonly _modifiers = new Modifiers();
     private _metaFileWriter!: MetaFileWriter;
@@ -34,6 +34,7 @@ export class Metadata {
     }
 
     public addClassMetadata(classMeta: SerialisedClass) {
+        this._output = this._output.filter(i => i.name !== classMeta.name);
         this._output.push(classMeta);
         this.writeToFiles();
     }
