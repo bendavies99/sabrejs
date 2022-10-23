@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "parcel build index.html",
-    "run": "parcel index.html"
+    "run": "parcel index.html --no-cache --log-level verbose"
   },
   "alias": {
     "process": false
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "parcel": "^2.7.0",
-    "@sabrejs/parcel-transformer-sabrejs": "link:0.0.1"
+    "@sabrejs/parcel-transformer-sabrejs": "link:0.0.1",
+    "@types/parcel-env": "^0.0.1"
   }
 }

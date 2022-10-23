@@ -22,7 +22,8 @@
   },
   "devDependencies": {
     "@types/node": "^18.8.5",
-    "microbundle": "^0.15.1"
+    "microbundle": "^0.15.1",
+    "@types/webpack-env": "^1.18.0"
   },
   "keywords": ["sabrejs", "core"],
   "author": "Ben Davies <me@bdavies.net>",

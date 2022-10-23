@@ -1,11 +1,6 @@
 
 R
 "packages/transformer/tsconfig.json,d\4\d45ae636b5ddc881bc1aabbb1dab02840f46d908
-;
-sabrejs.iml,f\d\fd3e27e2e97cb39d467ad32d49acfcbd50fb855d
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 Z
 *packages/core/src/decorator/param/index.ts,c\3\c3cf80e4aad604db2362316e58827506dc94f1c4
 T

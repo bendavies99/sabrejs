@@ -1,9 +1,28 @@
 import {SabreFactory, Singleton} from "@sabrejs/core";
 
+if (module.hot) {
+    module.hot.accept(() => {});
+}
+
+@Singleton()
+export class Namey {
+
+}
+
+@Singleton()
+export class LoggerName {
+    name() {
+        return 'mainy';
+    }
+}
+
 @Singleton()
 export class Test {
+    constructor(private readonly loggerName: LoggerName) {
+    }
+
     log(msg: string) {
-        console.log(msg);
+        console.log(`INFO [${this.loggerName.name()}]: ${msg}`);
     }
 }
 

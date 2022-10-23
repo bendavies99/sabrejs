@@ -7,6 +7,11 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/core/dist" />
       <excludeFolder url="file://$MODULE_DIR$/examples/01-hello-world/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/transformer/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/01-node/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/04-rollup/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/05-parcel/.parcel-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/examples/05-parcel/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/parcel-transformer-sabrejs/dist" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

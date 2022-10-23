@@ -16,6 +16,10 @@ const TsTransformer = new Transformer({
             message: 'Handling file: ' + asset.filePath,
         });
 
+        logger.verbose({
+            message: 'File Dependencies: ' + JSON.stringify(asset.getDependencies())
+        });
+
         let code = await asset.getCode();
         let transpiled = typescript.transpileModule(
             code,

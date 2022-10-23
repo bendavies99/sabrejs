@@ -8,6 +8,7 @@
       "ScriptHost",
       "ES2015.Collection"
     ],
+    "types": ["webpack-env"],
     "target": "esnext",
     "allowJs": true,
     "importHelpers": true,

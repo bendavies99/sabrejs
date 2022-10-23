@@ -17,6 +17,17 @@ export class SabreImpl implements SabreContainer {
 
     async init() {
         await this.metadata.loadInjectionMetadata();
+        console.log('Typeof Module: ' + typeof module);
+        if (typeof module === 'object' && module.hot) {
+            module.hot.accept('./SabreMetadata', async () => {
+                console.log('Reloaded the data!');
+                await this.metadata.loadInjectionMetadata();
+                this._registry = await this.metadataProcessor.processMetadata(this.metadata);
+                this.injector = new SabreInjectorImpl(this._registry, this);
+            }, err => {
+                console.error(err);
+            });
+        }
         this._registry = await this.metadataProcessor.processMetadata(this.metadata);
         this.injector = new SabreInjectorImpl(this._registry, this);
     }
